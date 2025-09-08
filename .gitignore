@@ -1,2 +1,4 @@
 my_fastapi_env/
 .env.example
+.env
+.DS_Store

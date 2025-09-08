@@ -1,8 +1,7 @@
 from fastapi import FastAPI
 from backend.routes import review
 
-app = FastAPI()
-
+app = FastAPI(title = "SentinelAI")
 app.include_router(review.router, prefix="/review")
 
 @app.get("/")

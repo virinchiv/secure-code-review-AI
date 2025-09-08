@@ -21,6 +21,8 @@ def detect_sql_injection(node) -> bool:
             if isinstance(target, ast.Name) and target.id in ['query', 'sql', 'stmt']:
                 if isinstance(node.value, ast.BinOp):
                     return True
+                if isinstance(node.value, ast.JoinedStr):
+                    return True
                 if isinstance(node.value, ast.Call):
                     if isinstance(node.value.func, ast.Attribute) and node.value.func.attr == "format":
                         return True
